@@ -1,0 +1,39 @@
+Assignment No: 02
+Assignment Name: Write an assembly code to glow G+R1(ON)-R1(OFF)-Y(ON) in LED Display respectively.
+
+Assembly Code:
+
+G13_AS2 SEGMENT PARA PUBLIC 'CODE'
+ASSUME CS:G13_AS2
+ORG 1000H
+
+START:
+    
+    MOV AL,80H
+    OUT 1FH,AL
+    
+    MOV AL,0FFH
+    OUT 19H,AL
+    
+LED:
+    MOV AL,03H
+    OUT 1BH,AL
+    
+    MOV CX,0FFFFH
+    D0:LOOP D0
+    
+    MOV AL,02H
+    OUT 1BH,AL
+    
+    MOV CX,0FFFFH
+    D1:LOOP D1
+    
+    MOV AL,06H
+    OUT 1BH,AL
+    
+    MOV  CX,0FFFFH
+    D2:LOOP D2
+    
+G13_AS2 ENDS
+END START
+            

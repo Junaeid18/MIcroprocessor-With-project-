@@ -1,0 +1,550 @@
+
+
+8...........;
+ 
+c0;
+DB FFH
+DB 83H
+DB 01H
+
+C1;
+DB C1H
+DB FFH
+DB 02H 
+
+C2;
+DB B7H
+DB FFH
+DB 04H
+
+c3;
+DB B7H
+DB FFH
+DB 08H
+
+c4;
+DB C1H
+DB FFH
+DB 10H
+
+c5;
+DB DBH
+DB DBH
+DB 20H
+
+c6;
+DB ADH
+DB ADH
+DB 40H
+
+c7;
+DB B5H
+DB B5H
+DB 80H
+
+
+9............;
+ 
+c0;
+DB C1H
+DB FFH
+DB 01H 
+
+C1;
+DB B7H
+DB FFH
+DB 02H
+
+c2;
+DB B7H
+DB FFH
+DB 04H
+
+c3;
+DB C1H
+DB FFH
+DB 08H
+
+c4;
+DB DBH
+DB DBH
+DB 10H
+
+c5;
+DB ADH
+DB ADH
+DB 20H
+
+c6;
+DB B5H
+DB B5H
+DB 40H
+
+c7;
+DB DBH
+DB DBH
+DB 80H
+
+10...........;
+
+c0;
+DB B7H
+DB FFH
+DB 01H
+
+c1;
+DB B7H
+DB FFH
+DB 02H
+
+c2;
+DB C1H
+DB FFH
+DB 04H
+
+c3;
+DB DBH
+DB DBH
+DB 08H
+
+c4;
+DB ADH
+DB ADH
+DB 10H
+
+c5;
+DB B5H
+DB B5H
+DB 20H
+
+c6;
+DB DBH
+DB DBH
+DB 40H
+
+c7;
+DB FFH
+DB DBH
+DB 80H
+
+11...........;
+
+c0;
+DB B7H 
+DB FFH
+DB 01H
+
+c1;
+DB C1H
+DB FFH
+DB 02H
+
+c2;
+DB DBH
+DB DBH
+DB 04H
+
+c3;
+DB ADH 
+DB ADH
+DB 08H
+
+c4;
+DB B5H
+DB B5H
+DB 10H
+
+c5;
+DB DBH
+DB DBH
+DB 20H
+
+c6;
+DB FFH
+DB DBH
+DB 40H
+
+c7;
+DB FFH
+DB ADH
+DB 80H
+
+
+11.5............;
+
+c0;
+DB C1H
+DB FFH
+DB 01H
+
+c1;
+DB DBH
+DB DBH
+DB 02H
+
+c2;
+DB ADH
+DB ADH
+DB 04H
+
+c3;
+DB B5H
+DB B5H
+DB 08H
+
+c4;
+DB DBH 
+DB DBH
+DB 10H
+
+c5;
+DB FFH
+DB DBH
+DB 20H
+
+c6;
+DB FFH
+DB ADH
+DB 40H
+
+c7;
+DB FFH
+DB B5H
+DB 80H
+
+12.........;
+
+c0;
+DB DBH
+DB DBH
+DB 01H
+
+c1;
+DB ADH
+DB ADH
+DB 02H
+
+c2;
+DB B5H
+DB B5H
+DB 04H
+
+c3;
+DB DBH
+DB DBH
+DB 08H
+
+c4;
+DB FFH
+DB DBH
+DB 10H
+
+c5;
+DB FFH
+DB ADH
+DB 20H
+
+c6;
+DB FFH
+DB B5H
+DB 40H
+
+c7;
+DB FFH
+DB DBH 
+DB 80H
+
+13......................;
+
+c0;
+DB ADH  
+DB ADH
+DB 01H
+
+c1;
+DB B5H
+DB B5H
+DB 02H
+
+c2;
+DB DBH
+DB DBH
+DB 04H
+
+c3;
+DB FFH
+DB DBH
+DB 08H
+
+c4;
+DB FFH
+DB ADH
+DB 10H
+
+c5;
+DB FFH 
+DB B5H
+DB 20H
+
+c6;
+DB FFH
+DB DBH
+DB 40H
+
+c7;
+DB FFH
+DB FFH
+DB 00H
+
+14..............;
+c0;
+DB B5H
+DB B5H
+DB 01H
+
+c1;
+DB DBH
+DB DBH
+DB 02H
+
+c2;
+DB FFH
+DB DBH
+DB 04H
+
+c3;
+DB FFH
+DB ADH
+DB 08H
+
+c4;
+DB FFH
+DB B5H
+DB 10H
+
+c5;
+DB FFH
+DB DBH
+DB 20H
+
+c6;
+DB FFH
+DB FFH
+DB 00H
+
+c7;
+DB FFH
+DB FFH 
+DB 00H
+
+15...............;
+c0;
+DB DBH
+DB DBH
+DB 01H
+
+c1;
+DB FFH
+DB DBH
+DB 02H
+
+c2;
+DB FFH
+DB ADH
+DB 04H
+
+c3;
+DB FFH
+DB B5H
+DB 08H
+
+c4;
+DB FFH 
+DB DBH
+DB 10H
+
+c5;
+DB FFH
+DB FFH 
+DB 00H
+
+c6;
+DB FFH
+DB FFH 
+DB 00H
+
+c7;
+DB FFH
+DB FFH 
+DB 00H
+
+16.............;
+c0;
+DB FFH
+DB DBH 
+DB 01H
+ 
+c1;
+DB FFH
+DB ADH
+DB 02H
+
+c2;
+DB FFH
+DB B5H
+DB 04H
+
+c3;
+DB FFH
+DB DBH
+DB 08H
+
+c4;
+DB FFH
+DB FFH 
+DB 00H
+
+c5;
+DB FFH
+DB FFH 
+DB 00H
+
+c6;
+DB FFH
+DB FFH 
+DB 00H
+
+c7;
+DB FFH
+DB FFH 
+DB 00H
+
+17...............;
+c0;
+DB FFH
+DB ADH
+DB 01H
+
+c1;
+DB FFH
+DB B5H
+DB 02H
+ 
+c2;
+DB FFH
+DB DBH
+DB 04H
+
+c3;
+DB FFH
+DB FFH 
+DB 00H
+
+c4;
+DB FFH
+DB FFH 
+DB 00H
+
+c5;
+DB FFH
+DB FFH 
+DB 00H
+
+c6;
+DB FFH
+DB FFH 
+DB 00H
+
+c7;
+DB FFH
+DB FFH 
+DB 00H
+
+18........;
+c0;
+DB FFH
+DB B5H 
+DB 01H
+
+c1;
+DB FFH
+DB DBH
+DB 02H
+
+c2;
+DB FFH
+DB FFH 
+DB 00H
+
+c3;
+DB FFH
+DB FFH 
+DB 00H
+
+c4;
+DB FFH
+DB FFH 
+DB 00H
+
+c5;
+DB FFH
+DB FFH 
+DB 00H
+
+c6;
+DB FFH
+DB FFH 
+DB 00H
+
+c7;
+DB FFH
+DB FFH 
+DB 00H
+
+19........;
+
+
+c0;
+DB FFH 
+DB DBH
+DB 01H
+
+c1;
+DB FFH
+DB FFH 
+DB 00H
+
+c2;
+DB FFH
+DB FFH 
+DB 00H
+
+c3;
+DB FFH
+DB FFH 
+DB 00H
+
+c4;
+DB FFH
+DB FFH 
+DB 00H
+
+c5;
+DB FFH
+DB FFH 
+DB 00H
+
+c6;
+DB FFH
+DB FFH 
+DB 00H
+
+c7;
+DB FFH
+DB FFH 
+DB 00H
+
+
+
+
+

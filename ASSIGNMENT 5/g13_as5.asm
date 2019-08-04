@@ -1,0 +1,285 @@
+g13_as5 SEGMENT PARA PUBLIC 'CODE'
+ASSUME CS:g13_as5 
+ORG 1000H
+
+START:
+    MOV AL,80H
+    OUT 1EH,AL
+    
+C:
+   C0:
+    MOV AL,0FEH
+    OUT 18H,AL
+    MOV AL,0FEH
+    OUT 1AH,AL
+    MOV AL,01H
+    OUT 1CH,AL
+    
+    MOV CX,0FFFFH
+    L0:LOOP L0
+    
+    MOV AL,0FCH
+    OUT 18H,AL
+    MOV AL,0FCH
+    OUT 1AH,AL
+    MOV AL,01H
+    OUT 1CH,AL
+    
+    MOV CX,0FFFFH
+    L1:LOOP L1
+    
+    MOV AL,0F8H
+    OUT 18H,AL
+    MOV AL,0F8H
+    OUT 1AH,AL
+    MOV AL,01H
+    OUT 1CH,AL
+    
+    MOV CX,0FFFFH
+    L2:LOOP L2
+    
+    MOV AL,0F0H
+    OUT 18H,AL
+    MOV AL,0F0H
+    OUT 1AH,AL
+    MOV AL,01H
+    OUT 1CH,AL
+    
+    MOV CX,0FFFFH
+    L3:LOOP L3
+    
+    MOV AL,0E0H
+    OUT 18H,AL
+    MOV AL,0E0H
+    OUT 1AH,AL
+    MOV AL,01H
+    OUT 1CH,AL
+    
+    MOV CX,0FFFFH
+    L4:LOOP L4
+    
+    MOV AL,0C0H
+    OUT 18H,AL
+    MOV AL,0C0H
+    OUT 1AH,AL
+    MOV AL,01H
+    OUT 1CH,AL
+    
+    MOV CX,0FFFFH
+    L5:LOOP L5
+    
+    MOV AL,080H
+    OUT 18H,AL
+    MOV AL,080H
+    OUT 1AH,AL
+    MOV AL,01H
+    OUT 1CH,AL
+    
+    MOV CX,0FFFFH
+    L6:LOOP L6
+    
+    MOV AL,00H
+    OUT 18H,AL
+    MOV AL,00H
+    OUT 1AH,AL
+    MOV AL,01H
+    OUT 1CH,AL
+    
+    MOV CX,0FFFFH
+    L7:LOOP L7
+    
+    MOV AL,FFH
+    OUT 18H,AL
+    MOV AL,FFH
+    OUT 1AH,AL
+    MOV AL,00H
+    OUT 1CH,AL
+    
+    MOV CX,0FFFFH
+    L8:LOOP L8
+        
+   C2:
+    MOV AL,0FEH
+    OUT 18H,AL
+    MOV AL,0FFH
+    OUT 1AH,AL
+    MOV AL,04H
+    OUT 1CH,AL
+    
+    MOV CX,0FFFFH
+    M0:LOOP M0     
+    
+    MOV AL,0FCH
+    OUT 18H,AL
+    MOV AL,0FFH
+    OUT 1AH,AL
+    MOV AL,04H
+    OUT 1CH,AL
+    
+    MOV CX,0FFFFH
+    M1:LOOP M1
+    
+    MOV AL,0F8H
+    OUT 18H,AL
+    MOV AL,0FFH
+    OUT 1AH,AL
+    MOV AL,04H
+    OUT 1CH,AL
+    
+    MOV CX,0FFFFH
+    M2:LOOP M2
+    
+    MOV AL,0F0H
+    OUT 18H,AL
+    MOV AL,0FFH
+    OUT 1AH,AL
+    MOV AL,04H
+    OUT 1CH,AL
+    
+    MOV CX,0FFFFH
+    M3:LOOP M3  
+    
+    MOV AL,0E0H
+    OUT 18H,AL
+    MOV AL,0FFH
+    OUT 1AH,AL
+    MOV AL,04H
+    OUT 1CH,AL
+    
+    MOV CX,0FFFFH
+    M4:LOOP M4
+    
+    MOV AL,0C0H
+    OUT 18H,AL
+    MOV AL,0FFH
+    OUT 1AH,AL
+    MOV AL,04H
+    OUT 1CH,AL
+    
+    MOV CX,0FFFFH
+    M5:LOOP M5
+    
+    MOV AL,080H
+    OUT 18H,AL
+    MOV AL,0FFH
+    OUT 1AH,AL
+    MOV AL,04H
+    OUT 1CH,AL
+    
+    MOV CX,0FFFFH
+    M6:LOOP M6
+    
+    MOV AL,00H
+    OUT 18H,AL
+    MOV AL,0FFH
+    OUT 1AH,AL
+    MOV AL,04H
+    OUT 1CH,AL
+    
+    MOV CX,0FFFFH
+    M7:LOOP M7
+    
+    MOV AL,FFH
+    OUT 18H,AL
+    MOV AL,FFH
+    OUT 1AH,AL
+    MOV AL,00H
+    OUT 1CH,AL
+    
+    MOV CX,0FFFFH
+    M8:LOOP M8
+
+   C4:
+    MOV AL,0FFH
+    OUT 18H,AL
+    MOV AL,0FEH
+    OUT 1AH,AL
+    MOV AL,010H
+    OUT 1CH,AL
+    
+    MOV CX,0FFFFH
+    N0:LOOP N0                                        
+    
+    MOV AL,0FFH
+    OUT 18H,AL
+    MOV AL,0FCH
+    OUT 1AH,AL
+    MOV AL,010H
+    OUT 1CH,AL
+    
+    MOV CX,0FFFFH
+    N1:LOOP N1  
+    
+    MOV AL,0FFH
+    OUT 18H,AL
+    MOV AL,0F8H
+    OUT 1AH,AL
+    MOV AL,010H
+    OUT 1CH,AL
+    
+    MOV CX,0FFFFH
+    N2:LOOP N2
+    
+    MOV AL,0FFH
+    OUT 18H,AL
+    MOV AL,0F0H
+    OUT 1AH,AL
+    MOV AL,010H
+    OUT 1CH,AL
+    
+    MOV CX,0FFFFH
+    N3:LOOP N3
+    
+    MOV AL,0FFH
+    OUT 18H,AL
+    MOV AL,0E0H
+    OUT 1AH,AL
+    MOV AL,010H
+    OUT 1CH,AL
+    
+    MOV CX,0FFFFH
+    N4:LOOP N4
+    
+    MOV AL,0FFH
+    OUT 18H,AL
+    MOV AL,0C0H
+    OUT 1AH,AL
+    MOV AL,010H
+    OUT 1CH,AL
+    
+    MOV CX,0FFFFH
+    N5:LOOP N5
+    
+    MOV AL,0FFH
+    OUT 18H,AL
+    MOV AL,080H
+    OUT 1AH,AL
+    MOV AL,010H
+    OUT 1CH,AL
+    
+    MOV CX,0FFFFH
+    N6:LOOP N6
+    
+    MOV AL,0FFH
+    OUT 18H,AL
+    MOV AL,000H
+    OUT 1AH,AL
+    MOV AL,010H
+    OUT 1CH,AL
+    
+    MOV CX,0FFFFH
+    N7:LOOP N7 
+
+    MOV AL,FFH
+    OUT 18H,AL
+    MOV AL,FFH
+    OUT 1AH,AL
+    MOV AL,00H
+    OUT 1CH,AL
+    
+    MOV CX,0FFFFH
+    N8:LOOP N8	   
+    JMP C 
+    
+   g13_as5 ENDS
+   END START  

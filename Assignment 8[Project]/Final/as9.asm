@@ -1,0 +1,917 @@
+                                                  A6 SEGMENT PARA PUBLIC 'CODE'
+ASSUME CS:A6
+ORG 1000H
+
+START:
+
+;control register turn on
+MOV AL,80H
+OUT 1FH,AL
+
+
+MOV AL,80H
+OUT 1EH,AL
+
+ 
+
+
+      
+
+loop1: mov dh, 0h                       ;variable for scene counting (22 scenes)
+       mov di, offset DATA 
+
+loop2: 
+       mov cx, 0h                       ; variable for running a scene 2^12 times
+
+loop3: mov bx,0h
+loop4: mov al, byte ptr cs:[di+bx]
+       out 18h,al
+       inc bx
+       mov al, byte ptr cs:[di+bx]       ;following 8 segments glow the 8 columns of each scene
+       out 1ah,al
+       inc bx
+       mov al, byte ptr cs:[di+bx]
+       out 1ch,al
+       inc bx
+
+       cmp bx,0018h   
+       jne loop4
+
+      
+
+       
+       
+       inc cx
+
+       cmp cx,0fffh                       ; checking if a scene has been run 0fffh times
+       jne loop3
+       
+
+
+       add di, 24                         ; going to the next scene which's starting is 8 blocks away, so 8*3=24 data bytes away
+       inc dh
+       cmp dh,16h                         ; checking if all 22 scene completed, if so, start from the beginning through the next unconditional jump
+       
+       jne loop2
+
+       
+       jmp loop1
+    
+
+
+DATA:
+
+
+;0.8
+DB 0FFH
+DB 0FFH
+DB 00H
+
+DB 0FFH
+DB 0FFH
+DB 00H
+
+DB 0FFH
+DB 0FFH
+DB 00H
+
+DB 0FFH
+DB 0FFH
+DB 00H
+
+DB 0FFH
+DB 0FFH
+DB 00H
+
+DB 0FFH
+DB 0FFH
+DB 00H 
+
+DB 0FFH
+DB 0FFH
+DB 00H
+
+DB 0FFH
+DB 0F3H
+DB 080H
+
+
+;0.9
+DB 0FFH
+DB 0FFH
+DB 00H
+
+DB 0FFH
+DB 0FFH
+DB 00H
+
+DB 0FFH
+DB 0FFH
+DB 00H
+
+DB 0FFH
+DB 0FFH
+DB 00H
+
+DB 0FFH
+DB 0FFH
+DB 00H
+
+DB 0FFH
+DB 0FFH
+DB 00H
+
+DB 0FFH
+DB 0F3H
+DB 040H
+
+DB 0FFH
+DB 0FDH
+DB 080H
+
+
+;1
+DB 0FFH
+DB 0FFH
+DB 00H
+
+DB 0FFH
+DB 0FFH
+DB 00H
+
+DB 0FFH
+DB 0FFH
+DB 00H
+
+DB 0FFH
+DB 0FFH
+DB 00H
+
+DB 0FFH
+DB 0FFH
+DB 00H
+
+DB 0FFH
+DB 0F3H
+DB 020H
+
+DB 0FFH
+DB 0FDH
+DB 040H
+
+DB 0FFH
+DB 081H
+DB 080H
+
+
+;2
+DB 0FFH
+DB 0FFH
+DB 00H
+
+DB 0FFH
+DB 0FFH
+DB 00H
+
+DB 0FFH
+DB 0FFH
+DB 00H
+
+DB 0FFH
+DB 0FFH
+DB 00H
+
+DB 0FFH
+DB 0F3H
+DB 010H
+
+DB 0FFH
+DB 0FDH
+DB 020H
+
+DB 0FFH
+DB 083H
+DB 040H
+
+DB 0C1H
+DB 0FFH
+DB 080H
+
+
+;3
+DB 0FFH
+DB 0FFH
+DB 00H
+
+DB 0FFH
+DB 0FFH
+DB 00H
+
+DB 0FFH
+DB 0FFH
+DB 00H
+
+DB 0FFH
+DB 0F3H
+DB 08H
+
+DB 0FFH
+DB 0FDH
+DB 010H
+
+DB 0FFH
+DB 083H
+DB 020H
+
+DB 0C1H
+DB 0FFH
+DB 040H
+
+DB 0B7H
+DB 0FFH
+DB 080H
+
+
+;4
+DB 0FFH
+DB 0FFH
+DB 00H
+
+DB 0FFH
+DB 0FFH
+DB 00H
+
+DB 0FFH
+DB 0F3H
+DB 04H
+
+DB 0FFH
+DB 0FDH
+DB 08H
+
+DB 0FFH
+DB 083H
+DB 010H
+
+DB 0C1H
+DB 0FFH
+DB 020H
+
+DB 0B7H
+DB 0FFH
+DB 040H
+
+DB 0B7H
+DB 0FFH
+DB 080H
+
+
+;5
+DB 0FFH
+DB 0FFH
+DB 00H
+
+
+DB 0FFH
+DB 0F3H
+DB 02H
+
+DB 0FFH
+DB 0FDH
+DB 04H
+
+DB 0FFH
+DB 083H
+DB 08H
+
+DB 0C1H
+DB 0FFH
+DB 010H
+
+DB 0B7H
+DB 0FFH
+DB 020H
+
+DB 0B7H
+DB 0FFH
+DB 040H
+
+DB 0C1H
+DB 0FFH
+DB 080H
+
+
+;6
+DB 0FFH
+DB 0F3H
+DB 01H
+
+DB 0FFH
+DB 0FDH
+DB 02H
+
+DB 0FFH
+DB 083H
+DB 04H
+
+DB 0C1H
+DB 0FFH
+DB 08H
+
+DB 0B7H
+DB 0FFH
+DB 010H
+
+DB 0B7H
+DB 0FFH
+DB 020H
+
+DB 0C1H
+DB 0FFH
+DB 040H
+
+DB 0DBH
+DB 0DBH
+DB 080H
+
+
+;7
+DB 0FFH
+DB 0FDH
+DB 01H
+
+DB 0FFH
+DB 083H
+DB 02H
+
+DB 0C1H
+DB 0FFH
+DB 04H
+
+DB 0B7H
+DB 0FFH
+DB 08H
+
+DB 0B7H
+DB 0FFH
+DB 010H
+
+DB 0C1H
+DB 0FFH
+DB 020H
+
+DB 0DBH
+DB 0DBH
+DB 040H
+
+DB 0ADH
+DB 0ADH
+DB 080H
+
+
+;8
+DB 0FFH
+DB 083H
+DB 01H
+
+DB 0C1H
+DB 0FFH
+DB 02H
+
+DB 0B7H
+DB 0FFH
+DB 04H
+
+DB 0B7H
+DB 0FFH
+DB 08H
+
+DB 0C1H
+DB 0FFH
+DB 010H
+
+DB 0DBH
+DB 0DBH
+DB 020H
+
+DB 0ADH
+DB 0ADH
+DB 040H
+
+DB 0B5H
+DB 0B5H
+DB 080H
+
+
+;9
+DB 0C1H
+DB 0FFH
+DB 01H
+
+DB 0B7H
+DB 0FFH
+DB 02H
+
+DB 0B7H
+DB 0FFH
+DB 04H
+
+DB 0C1H
+DB 0FFH
+DB 08H
+
+DB 0DBH
+DB 0DBH
+DB 010H
+
+DB 0ADH
+DB 0ADH
+DB 020H
+
+DB 0B5H
+DB 0B5H
+DB 040H
+
+DB 0DBH
+DB 0DBH
+DB 080H
+
+
+
+
+;10
+
+
+DB 0B7H
+DB 0FFH
+DB 01H
+
+
+DB 0B7H
+DB 0FFH
+DB 02H
+
+
+DB 0C1H
+DB 0FFH
+DB 04H
+
+
+DB 0DBH
+DB 0DBH
+DB 08H
+
+
+DB 0ADH
+DB 0ADH
+DB 010H
+
+
+DB 0B5H
+DB 0B5H
+DB 020H
+
+
+DB 0DBH
+DB 0DBH
+DB 040H
+
+
+DB 0FFH
+DB 0DBH
+DB 080H
+
+
+;11
+
+
+DB 0B7H 
+DB 0FFH
+DB 01H
+
+
+DB 0C1H
+DB 0FFH
+DB 02H
+
+
+DB 0DBH
+DB 0DBH
+DB 04H
+
+
+DB 0ADH 
+DB 0ADH
+DB 08H
+
+
+DB 0B5H
+DB 0B5H
+DB 010H
+
+
+DB 0DBH
+DB 0DBH
+DB 020H
+
+
+DB 0FFH
+DB 0DBH
+DB 040H
+
+
+DB 0FFH
+DB 0ADH
+DB 080H
+
+
+;11.5
+
+
+DB 0C1H
+DB 0FFH
+DB 01H
+
+
+DB 0DBH
+DB 0DBH
+DB 02H
+
+
+DB 0ADH
+DB 0ADH
+DB 04H
+
+
+DB 0B5H
+DB 0B5H
+DB 08H
+
+
+DB 0DBH 
+DB 0DBH
+DB 010H
+
+
+DB 0FFH
+DB 0DBH
+DB 020H
+
+
+DB 0FFH
+DB 0ADH
+DB 040H
+
+
+DB 0FFH
+DB 0B5H
+DB 080H
+
+
+;12
+
+
+DB 0DBH
+DB 0DBH
+DB 01H
+
+
+DB 0ADH
+DB 0ADH
+DB 02H
+
+
+DB 0B5H
+DB 0B5H
+DB 04H
+
+
+DB 0DBH
+DB 0DBH
+DB 08H
+
+
+DB 0FFH
+DB 0DBH
+DB 010H
+
+
+DB 0FFH
+DB 0ADH
+DB 020H
+
+
+DB 0FFH
+DB 0B5H
+DB 040H
+
+
+DB 0FFH
+DB 0DBH 
+DB 080H
+
+
+;13
+
+
+DB 0ADH  
+DB 0ADH
+DB 01H
+
+
+DB 0B5H
+DB 0B5H
+DB 02H
+
+
+DB 0DBH
+DB 0DBH
+DB 04H
+
+
+DB 0FFH
+DB 0DBH
+DB 08H
+
+
+DB 0FFH
+DB 0ADH
+DB 010H
+
+
+DB 0FFH 
+DB 0B5H
+DB 020H
+
+
+DB 0FFH
+DB 0DBH
+DB 040H
+
+
+DB 0FFH
+DB 0FFH
+DB 00H
+
+
+;14
+
+
+DB 0B5H
+DB 0B5H
+DB 01H
+
+
+DB 0DBH
+DB 0DBH
+DB 02H
+
+
+DB 0FFH
+DB 0DBH
+DB 04H
+
+
+DB 0FFH
+DB 0ADH
+DB 08H
+
+
+DB 0FFH
+DB 0B5H
+DB 010H
+
+
+DB 0FFH
+DB 0DBH
+DB 020H
+
+
+DB 0FFH
+DB 0FFH
+DB 00H
+
+
+DB 0FFH
+DB 0FFH 
+DB 00H
+
+;15
+
+
+DB 0DBH
+DB 0DBH
+DB 01H
+
+
+DB 0FFH
+DB 0DBH
+DB 02H
+
+
+DB 0FFH
+DB 0ADH
+DB 04H
+
+
+DB 0FFH
+DB 0B5H
+DB 08H
+
+
+DB 0FFH 
+DB 0DBH
+DB 010H
+
+
+DB 0FFH
+DB 0FFH 
+DB 00H
+
+
+DB 0FFH
+DB 0FFH 
+DB 00H
+
+
+DB 0FFH
+DB 0FFH 
+DB 00H
+
+
+;16
+
+
+DB 0FFH
+DB 0DBH 
+DB 01H
+ 
+
+DB 0FFH
+DB 0ADH
+DB 02H
+
+
+DB 0FFH
+DB 0B5H
+DB 04H
+
+
+DB 0FFH
+DB 0DBH
+DB 08H
+
+
+DB 0FFH
+DB 0FFH 
+DB 00H
+
+
+DB 0FFH
+DB 0FFH 
+DB 00H
+
+
+DB 0FFH
+DB 0FFH 
+DB 00H
+
+
+DB 0FFH
+DB 0FFH 
+DB 00H
+
+
+;17
+
+
+DB 0FFH
+DB 0ADH
+DB 01H
+
+
+DB 0FFH
+DB 0B5H
+DB 02H
+ 
+
+DB 0FFH
+DB 0DBH
+DB 04H
+
+
+DB 0FFH
+DB 0FFH 
+DB 00H
+
+
+DB 0FFH
+DB 0FFH 
+DB 00H
+
+
+DB 0FFH
+DB 0FFH 
+DB 00H
+
+
+DB 0FFH
+DB 0FFH 
+DB 00H
+
+
+DB 0FFH
+DB 0FFH 
+DB 00H
+
+;18
+
+DB 0FFH
+DB 0B5H 
+DB 01H
+
+
+DB 0FFH
+DB 0DBH
+DB 02H
+
+
+DB 0FFH
+DB 0FFH 
+DB 00H
+
+
+DB 0FFH
+DB 0FFH 
+DB 00H
+
+
+DB 0FFH
+DB 0FFH 
+DB 00H
+
+
+DB 0FFH
+DB 0FFH 
+DB 00H
+
+
+DB 0FFH
+DB 0FFH 
+DB 00H
+
+
+DB 0FFH
+DB 0FFH 
+DB 00H
+
+;19
+
+
+
+DB 0FFH 
+DB 0DBH
+DB 01H
+
+
+DB 0FFH
+DB 0FFH 
+DB 00H
+
+
+DB 0FFH
+DB 0FFH 
+DB 00H
+
+
+DB 0FFH
+DB 0FFH 
+DB 00H
+
+
+DB 0FFH
+DB 0FFH 
+DB 00H
+
+
+DB 0FFH
+DB 0FFH 
+DB 00H
+
+
+DB 0FFH
+DB 0FFH 
+DB 00H
+
+
+DB 0FFH
+DB 0FFH 
+DB 00H
+
+
+
+
+EXIT:
+
+A6 ENDS
+END START

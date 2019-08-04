@@ -1,0 +1,40 @@
+A4 SEGMENT PARA PUBLIC 'CODE'
+ASSUME CS: A4
+ORG 1000H
+
+START:
+
+;control register turn on
+MOV AL,80H
+OUT 1FH,AL
+
+;segment address forcefully off
+MOV AL,0FFH
+OUT 19H,AL
+
+MOV SI,OFFSET DATA
+;LED turn on
+
+MOV BL,03H
+
+L1:
+MOV AL,BYTE PTR CS:[SI]
+OUT 1BH,AL
+
+;for delay
+MOV CX,0FFFFH
+L2:LOOP L2
+
+INC SI
+DEC BL
+CMP BL,00H
+
+JA L1
+
+DATA:
+DB 03H
+DB 02H
+DB 06H
+
+A4 ENDS
+END START
